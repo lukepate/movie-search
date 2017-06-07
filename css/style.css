@@ -1,6 +1,9 @@
 #movies img, #movie img{
   width:100%;
 }
+#video {
+  margin-left: -240px;
+}
 
 @media(min-width:960px){
   #movies .col-md-3 .well{

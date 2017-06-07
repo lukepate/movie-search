@@ -7,15 +7,12 @@ $(document).ready(() => {
 });
 
 function getMovies(searchText){
-  // axios.get('http://www.omdbapi.com/?i=tt3896198&apikey=54455191&?s='+searchText)
-
   axios.get('http://www.omdbapi.com/?s='+searchText+'&?i=tt3896198&apikey=54455191')
-
-
     .then((response) => {
       console.log(response);
       let movies = response.data.Search;
       let output = '';
+
       $.each(movies, (index, movie) => {
         output += `
           <div class="col-md-3">
@@ -43,12 +40,14 @@ function movieSelected(id){
 
 function getMovie(){
   let movieId = sessionStorage.getItem('movieId');
-
   axios.get('http://www.omdbapi.com?i='+movieId+'&apikey=54455191')
     .then((response) => {
       console.log(response);
       let movie = response.data;
-
+      let id = response.data.imdbID;
+      let videoId = id.substring(2,12);
+      console.log(movieId)
+      console.log(videoId)
       let output =`
         <div class="row">
           <div class="col-md-4">
@@ -64,16 +63,20 @@ function getMovie(){
               <li class="list-group-item"><strong>Director:</strong> ${movie.Director}</li>
               <li class="list-group-item"><strong>Writer:</strong> ${movie.Writer}</li>
               <li class="list-group-item"><strong>Actors:</strong> ${movie.Actors}</li>
+              <li class="list-group-item"><strong>ID:</strong> ${movie.imdbID}</li>
             </ul>
           </div>
         </div>
+
         <div class="row">
           <div class="well">
             <h3>Plot</h3>
             ${movie.Plot}
+            <div id='videoPlayer'><iframe class="VidSourceAPI" data-method="GetStreamEmbedUrlByIMDBID" data-apikey="IrRbdZwucojnyjLj" data-imdbid="${videoId}" scrolling="no" frameborder="0" width="900" height="530" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe></div>
             <hr>
-            <a href="http://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
+            <a href="http://imdb.com/title/${movieId}" target="_blank" class="btn btn-primary">View IMDB</a>
             <a href="index.html" class="btn btn-default">Go Back To Search</a>
+
           </div>
         </div>
       `;
