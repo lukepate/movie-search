@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Movie Info</title>
+    <title>Movie Search</title>
     <link rel="stylesheet" href="https://bootswatch.com/cyborg/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
@@ -10,7 +10,7 @@
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="index.html">MovieInfo</a>
+          <a class="navbar-brand" href="index.html">Movie Search</a>
         </div>
       </div>
     </nav>
@@ -26,9 +26,45 @@
 
     <div class="container">
       <div id="movies" class="row"></div>
+      <div id="showcase" class="row"></div>
     </div>
 
+    <div class="container">
+      <ul class="list-group">
+        <div class="row">
+          <div class="col-md-4">
+            <li class="list-group-item">
+              <div class="text-center">
+                <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_SX300.jpg">
+                <h5>The Shawshank Redemption</h5>
+                <a onclick="movieSelected('tt0111161')" class="btn btn-primary" href="#">Movie Details</a>
+              </div>
+            </li>
+          </div>
+          <div class="col-md-4">
+            <li class="list-group-item">
+              <div class="text-center">
+                <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTkxNTk1ODcxNl5BMl5BanBnXkFtZTcwMDI1OTMzOQ@@._V1_SX300.jpg">
+                <h5>The Great Gatsby</h5>
+                <a onclick="movieSelected('tt1343092')" class="btn btn-primary" href="#">Movie Details</a>
+              </div>
+            </li>
+          </div>
+          <div class="col-md-4">
+            <li class="list-group-item">
 
+                <div class="text-center">
+                  <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg">
+                  <h5>The Dark Knight</h5>
+                  <a onclick="movieSelected('tt0468569')" class="btn btn-primary" href="#">Movie Details</a>
+                </div>
+            </li>
+          </div>
+        </div>
+      </ul>
+    </div>
+
+  <script src="http://www.vidsourceapi.com/Scripts/User/ClientScript.js"></script>
   <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="

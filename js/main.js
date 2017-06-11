@@ -46,8 +46,6 @@ function getMovie(){
       let movie = response.data;
       let id = response.data.imdbID;
       let videoId = id.substring(2,12);
-      console.log(movieId)
-      console.log(videoId)
       let output =`
         <div class="row">
           <div class="col-md-4">
@@ -72,11 +70,10 @@ function getMovie(){
           <div class="well">
             <h3>Plot</h3>
             ${movie.Plot}
-            <div id='videoPlayer'><iframe class="VidSourceAPI" data-method="GetStreamEmbedUrlByIMDBID" data-apikey="IrRbdZwucojnyjLj" data-imdbid="${videoId}" scrolling="no" frameborder="0" width="900" height="530" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe></div>
+            <div id='videoPlayer'><iframe class="VidSourceAPI" data-method="GetStreamEmbedUrlByIMDBID" data-apikey="IrRbdZwucojnyjLj" data-imdbid="${videoId}" scrolling="no" frameborder="0" width="1100" height="590" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe></div>
             <hr>
             <a href="http://imdb.com/title/${movieId}" target="_blank" class="btn btn-primary">View IMDB</a>
             <a href="index.html" class="btn btn-default">Go Back To Search</a>
-
           </div>
         </div>
       `;
@@ -86,4 +83,5 @@ function getMovie(){
     .catch((err) => {
       console.log(err);
     });
+
 }
